@@ -160,19 +160,4 @@ backend-teste/
 - ✅ Logs e monitoramento básico
 - ✅ Estrutura modular e reutilizável
 
-## Próximos Passos
-
-- Implementar autenticação/autorização
-- Adicionar testes unitários e de integração
-- Configurar CI/CD
-- Otimizar performance (cache, paginação)
-- Adicionar mais formatos de documento suportados
-
-## Contribuição
-
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/nova-feature`)
-3. Commit suas mudanças (`git commit -am 'Adiciona nova feature'`)
-4. Push para a branch (`git push origin feature/nova-feature`)
-5. Abra um Pull Request
 
