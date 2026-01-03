@@ -10,3 +10,9 @@ python-dotenv
 langchain
 langchain-google-genai
 langchain-openai
+langchain-huggingface
+pdf2image
+langchain-community
+faiss-cpu
+tiktoken
+langchain-text-splitters

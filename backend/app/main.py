@@ -1,8 +1,9 @@
+#app/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import RedirectResponse
 from app.database import engine, Base
 from app.routers import documents
+from app.core.tesseract import configure_tesseract
 
 # Cria tabelas
 Base.metadata.create_all(bind=engine)
@@ -17,8 +18,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+configure_tesseract()
+
 app.include_router(documents.router)
 
-@app.get("/", include_in_schema=False)
-async def root():
-    return RedirectResponse(url="/docs")
+@app.get("/api/", include_in_schema=False)
+async def api_root():
+    return {
+        "message": "API de Análise de Documentos",
+        "docs": "/docs",
+        "health": "OK"
+    }

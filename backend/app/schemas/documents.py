@@ -1,3 +1,4 @@
+#shemas/documents.py
 from pydantic import BaseModel
 
 class DocumentResponse(BaseModel):
@@ -9,7 +10,6 @@ class DocumentResponse(BaseModel):
         from_attributes = True
 
 class QuestionRequest(BaseModel):
-    document_id: int
     question: str
 
 class AnswerResponse(BaseModel):

@@ -1,19 +1,19 @@
-FROM python:3.10-slim
+FROM python:3.11-slim
 
-# Instala Tesseract OCR e dependências do Postgres
+# Instalar Tesseract
 RUN apt-get update && apt-get install -y \
     tesseract-ocr \
+    tesseract-ocr-por \
     libtesseract-dev \
-    libpq-dev \
-    gcc \
     && rm -rf /var/lib/apt/lists/*
 
+# Configurar aplicação
 WORKDIR /app
-
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-# Inicia o servidor
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+EXPOSE 8000
+
+CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000"]
